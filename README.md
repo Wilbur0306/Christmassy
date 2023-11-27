@@ -1,2 +1,0 @@
-# Christmassy
-Our Christmas Project
