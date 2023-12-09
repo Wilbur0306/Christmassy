@@ -21,7 +21,8 @@ abstract class WriteLetterFacade extends Equatable {
   /// 말씀 카드
   final BibleCard card;
 
-  void print() {}
+  /// 편지를 보냈는지 여부
+  bool get isSent;
 
   // copywith
   WriteLetterFacade copyWith({
@@ -41,6 +42,7 @@ abstract class WriteLetterFacade extends Equatable {
         to,
         body,
         card,
+        isSent,
       ];
 }
 
@@ -54,6 +56,9 @@ class _WriteLetterImpl extends WriteLetterFacade {
           body: body,
           card: card,
         );
+
+  @override
+  bool get isSent => false;
 }
 
 /// 편지를 보낼때, 전송용 모델
@@ -72,4 +77,13 @@ class WriterLetter extends WriteLetterFacade {
 
   /// 누가 쓰는 편지인지
   final User from;
+
+  @override
+  bool get isSent => true;
+
+  @override
+  List<Object?> get props => [
+        ...super.props,
+        from,
+      ];
 }
