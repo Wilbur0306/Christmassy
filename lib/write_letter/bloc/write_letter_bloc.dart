@@ -1,13 +1,20 @@
 import 'package:bloc/bloc.dart';
 import 'package:christmassy/models/bible_card.dart';
 import 'package:christmassy/models/sealing_wax.dart';
+import 'package:christmassy/models/user.dart';
 import 'package:equatable/equatable.dart';
 
 part 'write_letter_event.dart';
 part 'write_letter_state.dart';
 
 class WriteLetterBloc extends Bloc<WriteLetterEvent, WriteLetterState> {
-  WriteLetterBloc() : super(WriteLetterInitial()) {
+  WriteLetterBloc({
+    required CustomUser to,
+  }) : super(
+          WriteLetterState(
+            to: to,
+          ),
+        ) {
     on<WriteLetterEvent>((event, emit) async {
       switch (event) {
         case WriteLetterInitialized():
@@ -34,22 +41,46 @@ class WriteLetterBloc extends Bloc<WriteLetterEvent, WriteLetterState> {
   Future<void> _onWriteLetterTypeSelected(
     WriteLetterTypeSelected event,
     Emitter<WriteLetterState> emit,
-  ) async {}
+  ) async {
+    emit(
+      state.copyWith(
+        type: event.type,
+      ),
+    );
+  }
 
   Future<void> _onWriteLetterBibleCardSelected(
     WriteLetterBibleCardSelected event,
     Emitter<WriteLetterState> emit,
-  ) async {}
+  ) async {
+    emit(
+      state.copyWith(
+        card: event.card,
+      ),
+    );
+  }
 
   Future<void> _onWriteLetterTextEdited(
     WriteLetterTextEdited event,
     Emitter<WriteLetterState> emit,
-  ) async {}
+  ) async {
+    emit(
+      state.copyWith(
+        text: event.text,
+      ),
+    );
+  }
 
   Future<void> _onWriterLetterSeleaingWaxSelected(
     WriterLetterSeleaingWaxSelected event,
     Emitter<WriteLetterState> emit,
-  ) async {}
+  ) async {
+    emit(
+      state.copyWith(
+        wax: event.wax,
+      ),
+    );
+  }
 
   Future<void> _onWriteLetterSubmitted(
     WriteLetterSubmitted event,

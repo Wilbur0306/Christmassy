@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-abstract class User extends Equatable {
+abstract class CustomUser extends Equatable {
   String get name;
 }
