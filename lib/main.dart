@@ -4,6 +4,7 @@ import 'package:christmassy/firebase_options.dart';
 import 'package:christmassy/google_auth_screen.dart';
 import 'package:christmassy/home_screen.dart';
 import 'package:christmassy/login/phone_auth_screen.dart';
+import 'package:christmassy/write_letter/screens/write_letter_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => const HomeScreen(),
         GoogleAuthScreen.routeName: (context) => const GoogleAuthScreen(),
         PhoneAuthScreen.routeName: (context) => const PhoneAuthScreen(),
+        WriteLetterScreen.routeName: (context) => const WriteLetterScreen(),
       },
     );
   }
