@@ -26,7 +26,9 @@ class HomeScreen extends StatelessWidget {
               );
             }),
           ],
-          child: PhoneInputView(flowKey: _flowKey),
+          child: PhoneInputView(
+            flowKey: _flowKey,
+          ),
         ),
       ),
     );
